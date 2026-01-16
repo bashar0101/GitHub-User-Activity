@@ -5,7 +5,7 @@ const https = require("https");
 const username = process.argv[2];
 
 if (!username) {
-  console.error("❌ Please provide a GitHub username.");
+  console.error("Please provide a GitHub username.");
   console.log("Usage: github-activity <username>");
   process.exit(1);
 }
@@ -23,7 +23,7 @@ https
     let data = "";
 
     if (res.statusCode !== 200) {
-      console.error(`❌ Failed to fetch data (status ${res.statusCode})`);
+      console.error(`Failed to fetch data (status ${res.statusCode})`);
       process.exit(1);
     }
 
@@ -36,7 +36,7 @@ https
         return;
       }
 
-      console.log(`📌 Recent activity for ${username}:\n`);
+      console.log(`Recent activity for ${username}:\n`);
 
       events.slice(0, 10).forEach((event) => {
         switch (event.type) {
